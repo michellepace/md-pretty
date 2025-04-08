@@ -48,7 +48,7 @@ At the natural conclusion, Claude produced `Spec.md (version 1)`
 
 **VERSION 2:**
 
-Manual edit to (version 1) to align to more of what I wanted.
+Manuallt edited (version 1) to align to more of what I wanted.
 
 **VERSION 3:**
 
@@ -58,6 +58,11 @@ Gave (version 2) to Claude again, same instruction:
 Read the attached `spec.md` document comprehensively. Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.
 ```
 
-**VERSION 4 — a base for vibe coding:**
+**VERSION 4: The Base**
 
 Brainstormed version control ideas with Claude in a separate chat, tweaked (version 3). This is the basis PRD or Product Requirement Spec.
+
+## Step 2: Simplify the spec for Bolt, Replit, etc.
+The method above was adopted from [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/) where the intended use is Cursor. For the easier vibe coding tools like Bolt and Replit, all examples I have seen used a very simple and concise initial prompt to create the app. I used Grok and Sonnet to create a simplified version of the spec (version 4). I also asked to emphasise to use AI creativity, I am not entirely convinced my design ideas are super.
+
+These simplified versions are in `spec-simplified.md`.
