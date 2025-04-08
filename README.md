@@ -1,11 +1,9 @@
 # md-pretty
 Vibe coding experiment — A responsive markdown editor web app with live preview, version control, AI assistance, and sharing capabilities. 
 
-This app was created combining approaches from:
-- Blog Post: [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/)
-- Maven course: [AI Prototyping for Product Managers](https://maven.com/tech-for-product/ai-prototyping-for-product-managers)
+This app is in a process of creation, combining approaches from: [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/) and Maven course, [AI Prototyping for Product Managers](https://maven.com/tech-for-product/ai-prototyping-for-product-managers)
 
-## Iterate on idea to make `spec.md`
+## Step 1: Create `spec.md` from an idea
 
 **VERSION 1:**
 
