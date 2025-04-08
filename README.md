@@ -1,4 +1,4 @@
-# md-pretty
+# The Markdown Pretty App
 Vibe coding experiment — A responsive markdown editor web app with live preview, version control, AI assistance, and sharing capabilities. 
 
 This app is in a process of creation, combining approaches from: [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/) and Maven course, [AI Prototyping for Product Managers](https://maven.com/tech-for-product/ai-prototyping-for-product-managers)
