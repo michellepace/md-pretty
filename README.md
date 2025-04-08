@@ -47,3 +47,9 @@ Bring your own LLM API key for AI assistance. Limited to predefined companies an
 At the natural conclusion, Claude produced `Spec.md (version 1)`
 
 **VERSION 2** — Manual edit to (version 1) to align to more of what I wanted.
+
+**VERSION 3** — Gave (version 2) to Claude again, same instruction:
+
+```
+Read the attached `spec.md` document comprehensively. Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.
+```
