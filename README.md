@@ -7,7 +7,9 @@ This app was created combining approaches from:
 
 ## Iterate on idea to make `spec.md`
 
-**VERSION 1** — in a Claude chat, I started with:
+**VERSION 1:**
+
+In a Claude chat, I started with:
 
 ```
 Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.
@@ -46,12 +48,18 @@ Bring your own LLM API key for AI assistance. Limited to predefined companies an
 
 At the natural conclusion, Claude produced `Spec.md (version 1)`
 
-**VERSION 2** — Manual edit to (version 1) to align to more of what I wanted.
+**VERSION 2:**
 
-**VERSION 3** — Gave (version 2) to Claude again, same instruction:
+Manual edit to (version 1) to align to more of what I wanted.
+
+**VERSION 3:**
+
+Gave (version 2) to Claude again, same instruction:
 
 ```
 Read the attached `spec.md` document comprehensively. Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.
 ```
 
-**VERSION 4 — a base for vibe coding:** Brainstormed version control ideas with Claude in a separate chat, tweaked (version 3). This is the basis PRD or Product Requirement Spec.
+**VERSION 4 — a base for vibe coding:**
+
+Brainstormed version control ideas with Claude in a separate chat, tweaked (version 3). This is the basis PRD or Product Requirement Spec.
