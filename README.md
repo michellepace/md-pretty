@@ -45,3 +45,5 @@ Bring your own LLM API key for AI assistance. Limited to predefined companies an
 ```
 
 At the natural conclusion, Claude produced `Spec.md (version 1)`
+
+**VERSION 2** — Manual edit to (version 1) to align to more of what I wanted.

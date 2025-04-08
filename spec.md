@@ -1,209 +1,89 @@
-# MD Pretty - Technical Specification Document
+# IDEA - “MD Pretty” web app
+A markdown editor with live preview and AI editing assistance. A clean design, optimised for simplicity and user experience. Mobile-first responsive design. MD Pretty is for anyone who wants to create, manage, and share markdown documents beautifully. 
 
-## Project Overview
-MD Pretty is a web-based markdown editor application designed primarily for technical writers who need a simple solution to create, edit, and manage markdown documents. The application provides a clean, user-friendly interface with mobile-first responsive design, live preview functionality, and AI-assisted editing capabilities.
+## Foundational Tech Stack
+* Platform: Web application
+* Frontend: Next.js, TypeScript, Tailwind CSS, shadcn/UI
+* Backend & Storage: Supabase for database, authentication (with Clerk via Superbase), and storage
+* Package for markdown editor with live preview: UNKNOWN (please recommend)
 
-## Target Audience
-- Technical writers seeking a streamlined markdown editing experience
-- Users who create Product Requirement Documents (PRDs) and similar technical documentation
-- Individuals who want to manage all their markdown documents in one place
+## User Functionality
 
-## Tech Stack
-- **Frontend:** Next.js, TypeScript, Tailwind CSS, shadcn/UI, Lucide Icons
-- **Backend & Storage:** Supabase for database, authentication, and storage
-- **Authentication:** Google Sign-in only, handled via Clerk integrated with Supabase
-- **AI Integration:** Anthropic API (Claude models)
+### Core
 
-## Feature Specifications
+#### Header (with authentication)
+Shared across app (simple design)
+* Navigation Logo with “MD Pretty”
+* “Sign in” (sign up) button if user is unauthenticated
+* “Dashboard” button if user is authenticated AND on homepage
+* User profile icon if user is on a protected page (ie a page requiring authentication, e.g.,  Dashboard page and children).
 
-### 1. Authentication & User Management
-- **Authentication Method:** Google Sign-in only (via Clerk through Supabase)
-- **User Roles:** Single user role only; no team or role-based permissions
-- **User Profile:** No custom profile information needed beyond what's provided by Google authentication
+#### Footer
+Shared across app (simple design)
+* One line footer with copyright information only
 
-### 2. User Dashboard
-- **Layout:** Simple list view of all user documents
-- **Information Display:**
-  - Document title
-  - Creation date
-  - Last edited date
-- **Actions:**
-  - Create new document
-  - Open existing document
-  - Delete document
-- **Organization:** Flat list structure with no folders or tags
-- **Future Enhancement (V2):** Grid of cards with document previews
+#### Home page
+* Hero section with “See it in action” call to action with navigation to “See it in action” page
+* Content: Explains product features
 
-### 3. Markdown Editor
-- **Layout:**
-  - Desktop: Side-by-side editor and live preview
-  - Mobile: Responsive layout handled by the markdown editor library
-- **Supported Markdown Features:**
-  - Core markdown syntax (headings, lists, links, bold, italic, etc.)
-  - Tables
-  - Code blocks
-  - Syntax highlighting (nice to have if easily implementable)
-- **Save Functionality:**
-  - Manual save only (no autosave)
-  - When saving a new document, prompt user for document name
-  - Options to "Save" or "Save as version X"
-- **Notifications:** Toast messages for successful saves, errors, etc.
+#### “See it in action” page
+This page allows unauthenticated users to view the markdown editor and live preview, essentially the same content as the “Document page”:
+* They are able to use the markdown editor with live preview.
+* The “Save” button has the same authentication functionality as the “Sign in” button, upon successful authentication:
+  1. The user is redirected to the protected “Document page” with the document open
+  2. A model prompts the user to name the document and the markdown document is saved
+  3. A toast displays “Saved”
 
-### 4. Version Control
-- **Version History:** Unlimited version history per document
-- **Version Management:**
-  - Save current version
-  - Save as new version
-  - View version history
-- **Version Comparison:** Side-by-side comparison of complete before and after versions (no diff highlighting required)
+#### Dashboard page  
+User dashboard showing Markdown documents with fields: name, created (date), edited (date)
+* User can toggle between List view or Card view (shows document preview).
+* Clicking a list item or card item opens the document for editing
+* Ability to delete a document
+* Ability to share a document (link is copied and toast displays)
 
-### 5. Document Sharing
-- **Share Method:** Shareable URL
-- **Recipient Options:**
-  - View rendered markdown document in browser
-  - Download as markdown file
-  - "Open in MD Pretty" - creates a copy of the document in recipient's dashboard after sign-in
-- **Access Control:** No additional access controls needed; all shared links are public
+#### Document link sharing
+User shares a document url, the recipient opens the url and sees the markdown rendered. He has the ability to:
+1. “download” (as markdown file)
+2. “Open in MD Pretty” (recipient has to sign-in, the document is copied into his dashboard.
+3. Note: there is no collaborative editing.
 
-### 6. AI Assistance
-- **Implementation Phases:**
-  - **Version 1:** All users use application-provided API key (hidden from users)
-  - **Version 2:** Selected users have access to application's AI; others must provide their own API key
-- **API Key Management:** All API keys stored securely in backend
-- **AI Integration:** Anthropic API (Claude models: Sonnet 3.5 or Sonnet 3.7 only)
-- **Functionality:**
-  - User clicks "Ask AI" button in editor view
-  - User enters a prompt for document enhancement
-  - System sends current document content and user prompt to AI
-  - AI response displayed as a complete new version side-by-side with original
-  - User can choose to save new version or continue with original
+#### Document page
+Shows the markdown editor with live preview
 
-### 7. Import/Export
-- **Import:** Allow users to upload existing .md files
-- **Export:**
-  - Download as markdown file
-  - Shared documents automatically rendered as HTML when viewed via shared link
+On desktop: 
+* side by side like a standard markdown editor with live preview.
+* Sync scroll toggle
 
-### 8. User Interface & Experience
-- **Design Philosophy:** Mobile-first responsive design, clean and simple UI
-- **UI Components:** Use shadcn/UI components for consistent design
-- **Icons:** Lucide Icons library
-- **Notifications:** Toast notifications for important actions/events
+On mobile (ideally):
+1. A split-screen layout with an editor at the top and preview at the bottom
+2. The editor has a dark theme with light text and occupies roughly the upper half of the screen
+3. The editor pane shows markdown content that can be scrolled independently
+4. Below the editor is a "Preview" section with a light background that renders the formatted markdown
+5. The preview section becomes visible when scrolling down the page
+6. Both sections have their own scrollable areas but can be synchronized with the "Sync Scroll" feature
 
-### 9. Technical Requirements
-- **Internet Connectivity:** Always required; no offline functionality
-- **Browser Support:** Modern browsers only (Chrome, Firefox, Safari, Edge)
-- **Responsive Design:** All features must work on both desktop and mobile devices
+This design allows users to edit markdown in the fixed editor area while easily checking the rendered output by scrolling down to the preview section, with an option to synchronize scrolling between both views.​​​​​​​​​​​​​​​​
 
-## API & Data Structure
+Markdown features:
+* core syntax features including links, tables, code blocks
+* sync scroll
+* clean design (or configurable)
+* Nice to have:
+  * Edit/Preview buttons for mobile (like GitHub)
+  * can be styled with Tailwind CSS
+  * syntax highlighting
+* Not required
+  * Image embedding
+  * Mathematical notation not required 
 
-### Document Data Model
-```typescript
-interface Document {
-  id: string;
-  user_id: string;
-  title: string;
-  content: string;
-  created_at: Date;
-  updated_at: Date;
-  current_version: number;
-}
+### Version Control
+* Simple version control with the ability to compare versions. When in Markdown editor I can “save as version X” or “save” (current)
 
-interface DocumentVersion {
-  id: string;
-  document_id: string;
-  version_number: number;
-  content: string;
-  created_at: Date;
-  created_by: string; // user_id or "AI" if AI-generated
-}
+### AI Assistance
+#### 1. Editing Assistance
+* Assume Anthropic API and API key is securely stored and not exposed in the front end
+* On the “Document page” user can click “Ask AI”, and prompt for any document enhancements (e.g., Fix my syntax; suggest a better structure; fix grammar and spelling mistakes; write it more directly and clearly). 
+* I can compare my version against the AI edited version side-by-side, and click “save” or “save as version X”.
 
-interface SharedDocument {
-  id: string;
-  document_id: string;
-  share_url: string;
-  created_at: Date;
-}
-
-interface UserSettings {
-  id: string;
-  user_id: string;
-  anthropic_api_key?: string; // Optional, for V2
-  default_model?: string; // "claude-3.5-sonnet" or "claude-3.7-sonnet"
-}
-```
-
-### Primary API Endpoints
-
-```
-POST /api/auth/google               # Google authentication
-GET /api/documents                  # Get all user documents
-POST /api/documents                 # Create new document
-GET /api/documents/:id              # Get specific document
-PUT /api/documents/:id              # Update document
-DELETE /api/documents/:id           # Delete document
-POST /api/documents/:id/versions    # Create new document version
-GET /api/documents/:id/versions     # Get document version history
-GET /api/documents/:id/versions/:vnum # Get specific document version
-POST /api/documents/:id/share       # Create shared link
-GET /api/shared/:shareId            # Get shared document (public)
-POST /api/ai/enhance                # Send document to AI for enhancement
-```
-
-## User Flows
-
-### Document Creation Flow
-1. User signs in with Google account
-2. User navigates to dashboard
-3. User clicks "Create New"
-4. User creates markdown content in editor
-5. User clicks "Save"
-6. System prompts for document title
-7. System saves document and returns to dashboard
-
-### AI Assistance Flow
-1. User opens existing document
-2. User clicks "Ask AI" button
-3. User enters enhancement prompt
-4. System sends document and prompt to Anthropic API
-5. System displays AI response side-by-side with original
-6. User decides to save AI version or continue with original
-
-### Document Sharing Flow
-1. User opens document
-2. User clicks "Share" button
-3. System generates shareable link
-4. User shares link with recipient
-5. Recipient opens link in browser
-6. Recipient sees rendered markdown document
-7. Recipient can:
-   - Download as markdown file
-   - Click "Open in MD Pretty"
-   - If chosen, sign in with Google
-   - Document is copied to recipient's dashboard
-
-## Development Phases
-
-### Version 1 (MVP)
-- Authentication with Google Sign-in
-- Document creation, editing, and deletion
-- Basic version control
-- Markdown editor with live preview
-- Document sharing via URL
-- AI assistance using application-provided API key
-
-### Version 2
-- Grid view for dashboard with document previews
-- "Bring your own API key" functionality for AI assistance
-- Selected users have access to application's AI
-- Additional UI enhancements
-
-## Non-Requirements
-- Offline functionality
-- Collaborative editing
-- Folders or tags for organization
-- Export to formats other than markdown
-- Advanced markdown features (mathematical notation, diagrams)
-- Team or role-based permissions
-- Password-protected documents
-- Analytics tracking
+#### 2. bring your own API key
+Bring your own Anthropic API key for AI assistance. Limited to predefined companies and models (e.g, Anthropic, API key, select model to use: Sonnet 3.5, Sonnet 3.7 etc.).
