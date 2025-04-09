@@ -1,14 +1,21 @@
 # Simplified version(s) for `spec.md`
-The below options are more aligned to the examples seen on Bolt, Replit, etc., as they are simplier and more concise. I useed Grok3 and Sonnet 3.7 to create a simplified version of `spec.md`.
 
-## Option 1: Grok3 (initial reply)
+The below options are more aligned to the examples seen on Bolt, Replit, etc., as they are simplier and more concise. At the heart of it, the app is this: 
+
+> A modern markdown editor with real-time preview, version history, AI-powered enhancements, and seamless sharing.
+
+Below are the responses of asking for a simplification on `spec.md`. As I am just concentrating on a prototype first, I think I'll use [Option 3: UI/UX only](#option-3-uiux-only) and hope that Bolt/Replit doesn't use up my credits for building the database, authentication, etc.
+
+## Grok3
+
+### Option 1: initial
 ```
 Create a modern web app, MD Pretty, a clean markdown editor with live preview and AI vibes. Keep it minimal, mobile-friendly. Features: markdown editing with live preview, simple document saving, ‘Ask AI’ button (Anthropic API, user’s key). Use Next.js and a DB like Supabase, but riff if something cooler fits. Surprise me with vibe’y twists!
 ```
 
-## Option 2: Grok3 (force word count)
+### Option 2: (force word count)
 ```
-# MD Pretty Web App Prompt
+# MD Pretty Web App
 
 ## Purpose
 Develop a web application, MD Pretty, designed as a clean, user-friendly markdown editor with live preview and AI assistance. The intent is to offer a straightforward tool for creating, managing, and enhancing markdown documents in an intuitive interface. The app must prioritize simplicity, usability, and mobile responsiveness, ensuring a seamless experience across devices.
@@ -17,15 +24,13 @@ Develop a web application, MD Pretty, designed as a clean, user-friendly markdow
 
 ### Markdown Editor
 - Implement a markdown editor with real-time live preview.
-- Support standard markdown syntax:
-  - Headings (e.g., #, ##)
-  - Lists (ordered and unordered)
-  - Links, bold, italic, and code blocks
-- Provide a minimal, distraction-free design for focused editing.
+- Support standard markdown syntax (incl. code blocks, links)
+- Provide a minimal, distraction-free design for focused editing
 
-### Document Management
-- Enable users to save documents explicitly with a visible "Save" button.
-- Prompt users to name documents upon saving, with basic validation (e.g., no prohibited characters).
+### Document Dashboard
+A dashboard to manage all documents
+- Options to create, edit, delete, rename and share documents
+- Meta data for each document (e.g., created, last modified)
 - Store documents securely, tied to the user’s account.
 
 ### AI Assistance
@@ -56,12 +61,30 @@ Develop a web application, MD Pretty, designed as a clean, user-friendly markdow
 Start with this foundation and deliver a functional prototype, prioritizing usability and core functionality.
 ```
 
-## Option 3: Sonnet 3.7
+### Option 3: UI/UX only
+
+(ThinkMode): *You provided an option which is similar to the below. As I am concentrating on building a working prototype first in a vibe coding tool, I don’t want the AI to yet worry about any technical requirements. Hence I have left these details out as it will “self determine” this. I have left out specifications about the UI itself so that the AI will use creativity. **Q1.** Considering my original spec, is this description well aligned? **Q.2** Can you please improve it?*
+
+> *MD Pretty—a clean markdown editor with live preview and AI vibes. Keep it minimal, mobile-friendly. Features: markdown editing with live preview, ‘Ask AI’ button (which previews  a re-write of the document for replacement), easy share (a public link to the rendered document with ability to download markdown file), version control, and document dashboard.*
+
+Response:
 ```
-# MD Pal - Initial Specification
+MD Pretty: A mobile-responsive markdown editor with live preview and user-initiated AI assistance. Features include:
+- Markdown editing with real-time preview
+- A dashboard to manage saved documents
+- Simple version control to save and compare document versions
+- Sharing via public links to view rendered documents and download markdown files
+- An 'Ask AI' button where users can input a prompt to receive a rewritten version of the document, which they can preview and optionally replace the current content with
+```
+
+## Sonnet 3.7
+
+### Option 4
+```
+# MD Pretty - Initial Specification
 
 ## Project Vision
-MD Pal is a web application that provides a clean, intuitive markdown editor with live preview and AI editing assistance. The application combines simplicity with powerful features for technical writers who want to create, manage, and share markdown documents. At its core, MD Pal solves the problem of having markdown documents scattered across different platforms by providing a central repository with editing, versioning, and sharing capabilities.
+MD Pretty is a web application that provides a clean, intuitive markdown editor with live preview and AI editing assistance. The application combines simplicity with powerful features for technical writers who want to create, manage, and share markdown documents. At its core, MD Pretty solves the problem of having markdown documents scattered across different platforms by providing a central repository with editing, versioning, and sharing capabilities.
 
 I'm looking to build something that feels delightful to use - clean design with thoughtful interactions that make writing markdown enjoyable rather than just functional.
 
@@ -90,7 +113,7 @@ A simple dashboard showing user's documents with creation and last edited dates.
 The ability to save named versions of documents and compare different versions side-by-side. Users can view version history, compare versions, and copy content from previous versions into the current document.
 
 ### 4. Document Sharing
-Generate shareable links that allow recipients to view beautifully rendered markdown, download as a markdown file, or open a copy in their own MD Pal account.
+Generate shareable links that allow recipients to view beautifully rendered markdown, download as a markdown file, or open a copy in their own MD Pretty account.
 
 ### 5. AI Assistance
 Request AI help with document improvements via user-initiated prompts. AI can suggest enhancements to structure, grammar, clarity, or other aspects based on user requests. Users can review AI suggestions side-by-side with their original and choose what to incorporate.
@@ -119,7 +142,7 @@ Some areas where I'd especially value your creativity:
 The primary goal is to create an application that makes markdown editing feel joyful rather than utilitarian, while keeping the interface clean and intuitive.
 ```
 
-## Option 4: Sonnet 3.7
+### Option 5
 ```
 # MD Pretty - Streamlined Specification
 
@@ -166,7 +189,7 @@ I'm seeking your creative input on implementation while adhering to the core fun
 - Clean, responsive interface
 - Side-by-side editing and preview on desktop
 - Tab-based switching between edit/preview on mobile
-- Support for core markdown syntax (headings, lists, links, tables, code blocks)
+- Support for core markdown syntax
 - Sync scroll option (toggleable)
 
 ### 2. Document Management
