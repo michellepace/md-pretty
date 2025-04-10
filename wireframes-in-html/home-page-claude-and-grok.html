@@ -20,140 +20,6 @@
           }
         };
     </script>
-    <style>
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #f5f7fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-            color: #8A8ADF;
-        }
-
-        .feature-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .feature-desc {
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-image {
-            background: #f5f7fa;
-            border-radius: 8px;
-            height: 160px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .split-screen {
-            display: flex;
-            width: 100%;
-            height: 100%;
-        }
-
-        .split-screen-left, .split-screen-right {
-            width: 50%;
-            height: 100%;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .split-screen-left {
-            border-right: 1px solid #e5e7eb;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-
-        .split-screen-heading {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
-            width: 80%;
-        }
-
-        .dashboard-item {
-            background: white;
-            border-radius: 4px;
-            border: 1px solid #e5e7eb;
-            height: 100px;
-        }
-
-        .version-timeline {
-            width: 80%;
-            height: 2px;
-            background: #e5e7eb;
-            position: relative;
-            margin-top: 20px;
-        }
-
-        .version-point {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #8A8ADF;
-            border-radius: 50%;
-            top: -5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .version-label {
-            position: absolute;
-            top: 15px;
-            font-size: 0.7rem;
-        }
-
-        .version-point:nth-child(1) { left: 10%; }
-        .version-point:nth-child(2) { left: 45%; }
-        .version-point:nth-child(3) { left: 80%; }
-
-        .ai-interface {
-            display: flex;
-            flex-direction: column;
-            width: 80%;
-            gap: 0.75rem;
-        }
-
-        .ai-prompt {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 4px;
-            padding: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .ai-result {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 4px;
-            padding: 0.5rem;
-            font-size: 0.9rem;
-            height: 80px;
-        }
-    </style>
 </head>
 <body class="bg-bg-michelle">
     <div class="min-h-screen flex flex-col">
@@ -193,20 +59,20 @@
                 <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
                     <!-- Feature 1: Real-time Preview -->
                     <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-primary-michelle">
-                        <div class="feature-header">
-                            <div class="feature-icon"></div>
-                            <h3 class="feature-title">Real-time Preview</h3>
+                        <div class="flex items-center mb-6">
+                            <div class="w-[50px] h-[50px] rounded-full bg-section-bg-michelle flex items-center justify-center mr-4 text-2xl text-primary-michelle"></div>
+                            <h3 class="text-2xl font-semibold">Real-time Preview</h3>
                         </div>
-                        <p class="feature-desc text-gray-600">See your markdown rendered instantly as you type</p>
-                        <div class="feature-image">
-                            <div class="split-screen">
-                                <div class="split-screen-left text-gray-500">
+                        <p class="text-gray-600 mb-6">See your markdown rendered instantly as you type</p>
+                        <div class="bg-section-bg-michelle rounded-lg h-40 flex justify-center items-center overflow-hidden">
+                            <div class="flex w-full h-full">
+                                <div class="w-1/2 h-full p-4 flex flex-col justify-center border-r border-border-michelle font-mono text-sm text-gray-500">
                                     # Heading<br>
                                     - List item<br>
                                     **Bold text**
                                 </div>
-                                <div class="split-screen-right text-gray-700">
-                                    <h3 class="split-screen-heading">Heading</h3>
+                                <div class="w-1/2 h-full p-4 flex flex-col justify-center text-gray-700">
+                                    <h3 class="font-bold mb-2">Heading</h3>
                                     • List item<br>
                                     <strong>Bold text</strong>
                                 </div>
@@ -216,40 +82,40 @@
                     
                     <!-- Feature 2: Document Management -->
                     <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-primary-michelle">
-                        <div class="feature-header">
-                            <div class="feature-icon"></div>
-                            <h3 class="feature-title">Document Management</h3>
+                        <div class="flex items-center mb-6">
+                            <div class="w-[50px] h-[50px] rounded-full bg-section-bg-michelle flex items-center justify-center mr-4 text-2xl text-primary-michelle"></div>
+                            <h3 class="text-2xl font-semibold">Document Management</h3>
                         </div>
-                        <p class="feature-desc text-gray-600">Organize and access your documents from anywhere</p>
-                        <div class="feature-image">
-                            <div class="dashboard-grid">
-                                <div class="dashboard-item"></div>
-                                <div class="dashboard-item"></div>
-                                <div class="dashboard-item"></div>
-                                <div class="dashboard-item"></div>
-                                <div class="dashboard-item"></div>
-                                <div class="dashboard-item"></div>
+                        <p class="text-gray-600 mb-6">Organize and access your documents from anywhere</p>
+                        <div class="bg-section-bg-michelle rounded-lg h-40 flex justify-center items-center overflow-hidden">
+                            <div class="grid grid-cols-3 gap-3 w-4/5">
+                                <div class="bg-white rounded border border-border-michelle h-[100px]"></div>
+                                <div class="bg-white rounded border border-border-michelle h-[100px]"></div>
+                                <div class="bg-white rounded border border-border-michelle h-[100px]"></div>
+                                <div class="bg-white rounded border border-border-michelle h-[100px]"></div>
+                                <div class="bg-white rounded border border-border-michelle h-[100px]"></div>
+                                <div class="bg-white rounded border border-border-michelle h-[100px]"></div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Feature 3: Version Control -->
                     <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-primary-michelle">
-                        <div class="feature-header">
-                            <div class="feature-icon"></div>
-                            <h3 class="feature-title">Version Control</h3>
+                        <div class="flex items-center mb-6">
+                            <div class="w-[50px] h-[50px] rounded-full bg-section-bg-michelle flex items-center justify-center mr-4 text-2xl text-primary-michelle"></div>
+                            <h3 class="text-2xl font-semibold">Version Control</h3>
                         </div>
-                        <p class="feature-desc text-gray-600">Track changes and never lose your work</p>
-                        <div class="feature-image">
-                            <div class="version-timeline">
-                                <div class="version-point">
-                                    <span class="version-label text-gray-400">v1</span>
+                        <p class="text-gray-600 mb-6">Track changes and never lose your work</p>
+                        <div class="bg-section-bg-michelle rounded-lg h-40 flex justify-center items-center overflow-hidden">
+                            <div class="w-4/5 h-0.5 bg-border-michelle relative mt-5">
+                                <div class="absolute w-3 h-3 bg-primary-michelle rounded-full -top-[5px] left-[10%] flex flex-col items-center">
+                                    <span class="absolute top-[15px] text-xs text-gray-400">v1</span>
                                 </div>
-                                <div class="version-point">
-                                    <span class="version-label text-gray-400">v2</span>
+                                <div class="absolute w-3 h-3 bg-primary-michelle rounded-full -top-[5px] left-[45%] flex flex-col items-center">
+                                    <span class="absolute top-[15px] text-xs text-gray-400">v2</span>
                                 </div>
-                                <div class="version-point">
-                                    <span class="version-label text-gray-400">v3</span>
+                                <div class="absolute w-3 h-3 bg-primary-michelle rounded-full -top-[5px] left-[80%] flex flex-col items-center">
+                                    <span class="absolute top-[15px] text-xs text-gray-400">v3</span>
                                 </div>
                             </div>
                         </div>
@@ -257,15 +123,15 @@
                     
                     <!-- Feature 4: AI Assistance -->
                     <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-primary-michelle">
-                        <div class="feature-header">
-                            <div class="feature-icon"></div>
-                            <h3 class="feature-title">AI Editing</h3>
+                        <div class="flex items-center mb-6">
+                            <div class="w-[50px] h-[50px] rounded-full bg-section-bg-michelle flex items-center justify-center mr-4 text-2xl text-primary-michelle"></div>
+                            <h3 class="text-2xl font-semibold">AI Editing</h3>
                         </div>
-                        <p class="feature-desc text-gray-600">Enhance your writing with AI suggestions</p>
-                        <div class="feature-image">
-                            <div class="ai-interface">
-                                <div class="ai-prompt text-gray-400">Please re-structure my doc for clarity!</div>
-                                <div class="ai-result text-gray-400">Thinking...</div>
+                        <p class="text-gray-600 mb-6">Enhance your writing with AI suggestions</p>
+                        <div class="bg-section-bg-michelle rounded-lg h-40 flex justify-center items-center overflow-hidden">
+                            <div class="flex flex-col w-4/5 gap-3">
+                                <div class="bg-white border border-border-michelle rounded p-2 text-sm text-gray-400">Please re-structure my doc for clarity!</div>
+                                <div class="bg-white border border-border-michelle rounded p-2 text-sm text-gray-400 h-20">Thinking...</div>
                             </div>
                         </div>
                     </div>
