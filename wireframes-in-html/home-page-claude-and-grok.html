@@ -5,33 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MD Pretty | Beautiful Markdown Editor</title>
     <script src="https://cdn.tailwindcss.com/3.4.3"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'bg-michelle': '#FAF9F5',   // Baby powder
+                'primary-michelle': '#8A8ADF', // Tropical indigo #8A8ADF
+                'primary-hover-michelle': '#7979C9', // Tropical indigo (darker)
+                'section-bg-michelle': '#f5f7fa',    // Anti-flash (hard coded below for now)
+                'border-michelle': '#e5e7eb'         // Gray-200 (hard coded below for now)
+              }
+            }
+          }
+        };
+    </script>
     <style>
-        :root {
-            --color-bg: #FAF9F5;		/* Baby powder */
-            --color-text: #141413;      /* Night */
-            --color-primary: #8A8ADF;   /* Tropical indigo */
-            --color-primary-hover: #7979C9; /* Tropical indigo (darker) */
-            --color-section-bg: #f5f7fa;    /* Anti-flash white */
-            --color-border: #e5e7eb;    /* Gray-200 */
-        }
-
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        }
 
         .feature-icon {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--color-section-bg);
+            background: #f5f7fa;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 1rem;
             font-size: 1.5rem;
-            color: var(--color-primary);
+            color: #8A8ADF;
         }
 
         .feature-header {
@@ -43,7 +44,6 @@
         .feature-title {
             font-size: 1.5rem;
             font-weight: 600;
-            color: var(--color-text);
         }
 
         .feature-desc {
@@ -51,7 +51,7 @@
         }
 
         .feature-image {
-            background: var(--color-section-bg);
+            background: #f5f7fa;
             border-radius: 8px;
             height: 160px;
             display: flex;
@@ -76,7 +76,7 @@
         }
 
         .split-screen-left {
-            border-right: 1px solid var(--color-border);
+            border-right: 1px solid #e5e7eb;
             font-family: monospace;
             font-size: 0.9rem;
         }
@@ -96,14 +96,14 @@
         .dashboard-item {
             background: white;
             border-radius: 4px;
-            border: 1px solid var(--color-border);
+            border: 1px solid #e5e7eb;
             height: 100px;
         }
 
         .version-timeline {
             width: 80%;
             height: 2px;
-            background: var(--color-border);
+            background: #e5e7eb;
             position: relative;
             margin-top: 20px;
         }
@@ -112,7 +112,7 @@
             position: absolute;
             width: 12px;
             height: 12px;
-            background: var(--color-primary);
+            background: #8A8ADF;
             border-radius: 50%;
             top: -5px;
             display: flex;
@@ -139,7 +139,7 @@
 
         .ai-prompt {
             background: white;
-            border: 1px solid var(--color-border);
+            border: 1px solid #e5e7eb;
             border-radius: 4px;
             padding: 0.5rem;
             font-size: 0.9rem;
@@ -147,7 +147,7 @@
 
         .ai-result {
             background: white;
-            border: 1px solid var(--color-border);
+            border: 1px solid #e5e7eb;
             border-radius: 4px;
             padding: 0.5rem;
             font-size: 0.9rem;
@@ -155,18 +155,18 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-bg-michelle">
     <div class="min-h-screen flex flex-col">
         <!-- Navigation -->
         <header class="container mx-auto px-6 py-4">
             <nav class="flex justify-between items-center">
                 <div class="flex items-center">
                     <a href="#" class="text-xl font-semibold tracking-tight">
-                        <span class="text-[var(--color-primary)]">MD</span><span> Pretty</span>
+                        <span class="text-primary-michelle">MD</span><span> Pretty</span>
                     </a>
                 </div>
                 <div>
-                    <a href="#" class="border border-[var(--color-primary)] text-[var(--color-primary)] px-4 py-2 rounded-md text-sm font-medium transition duration-200 ease-in-out hover:bg-[rgba(138,138,223,0.1)] hover:-translate-y-px">Sign in</a>
+                    <a href="#" class="border border-primary-michelle text-primary-michelle px-4 py-2 rounded-md text-sm font-medium transition duration-200 ease-in-out hover:bg-[rgba(138,138,223,0.1)] hover:-translate-y-px">Sign in</a>
                 </div>
             </nav>
         </header>
@@ -175,12 +175,12 @@
         <main class="flex-grow container mx-auto px-6">
             <section class="max-w-3xl mx-auto text-center mt-20 md:mt-32">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter mb-8">
-                    Markdown editing, <span class="text-[var(--color-primary)]">beautifully</span> reimagined
+                    Markdown editing, <span class="text-primary-michelle">beautifully</span> reimagined
                 </h1>
                 <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-10">
                     A clean, intuitive markdown editor with live preview and AI editing assistance. Create, manage, and share markdown docs, delightfully.
                 </p>
-                <a href="#" class="inline-block bg-[var(--color-primary)] text-white px-9 py-3 rounded-md font-medium text-lg shadow-md transition duration-200 ease-in-out hover:bg-[var(--color-primary-hover)] hover:-translate-y-px">
+                <a href="#" class="inline-block bg-primary-michelle text-white px-9 py-3 rounded-md font-medium text-lg shadow-md transition duration-200 ease-in-out hover:bg-primary-hover-michelle hover:-translate-y-px">
                     See it in action
                 </a>
             </section>
@@ -188,11 +188,11 @@
             <!-- Features Section -->
             <section class="container mx-auto px-6 py-20">
                 <div class="text-center mb-12">
-                    <h2 class="text-5xl font-bold text-[var(--color-text)]">Markdown Pretty is pretty simple</h2>
+                    <h2 class="text-4xl font-bold">Markdown Pretty is pretty simple</h2>
                 </div>
                 <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
                     <!-- Feature 1: Real-time Preview -->
-                    <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-[var(--color-primary)]">
+                    <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-primary-michelle">
                         <div class="feature-header">
                             <div class="feature-icon"></div>
                             <h3 class="feature-title">Real-time Preview</h3>
@@ -215,7 +215,7 @@
                     </div>
                     
                     <!-- Feature 2: Document Management -->
-                    <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-[var(--color-primary)]">
+                    <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-primary-michelle">
                         <div class="feature-header">
                             <div class="feature-icon"></div>
                             <h3 class="feature-title">Document Management</h3>
@@ -234,7 +234,7 @@
                     </div>
                     
                     <!-- Feature 3: Version Control -->
-                    <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-[var(--color-primary)]">
+                    <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-primary-michelle">
                         <div class="feature-header">
                             <div class="feature-icon"></div>
                             <h3 class="feature-title">Version Control</h3>
@@ -256,7 +256,7 @@
                     </div>
                     
                     <!-- Feature 4: AI Assistance -->
-                    <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-[var(--color-primary)]">
+                    <div class="bg-white rounded-lg shadow-md p-8 transition-transform transition-shadow duration-300 border-l-2 border-transparent hover:-translate-y-1 hover:shadow-lg hover:border-l-primary-michelle">
                         <div class="feature-header">
                             <div class="feature-icon"></div>
                             <h3 class="feature-title">AI Editing</h3>
@@ -274,7 +274,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="container mx-auto px-6 py-8 border-t border-gray-200">
+        <footer class="container mx-auto px-6 py-8 border-t border-border-michelle">
             <div class="flex justify-between items-center">
                 <p class="text-sm text-gray-500">© 2025 MD Pretty. All rights reserved.</p>
                 <div class="text-sm text-gray-500">
