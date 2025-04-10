@@ -6,25 +6,34 @@
     <title>MD Pretty | Beautiful Markdown Editor</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
+        :root {
+            --color-bg: #FAF9F5; 			/* Baby powder */
+            --color-text: #141413;			/* Night */
+            --color-primary: #8A8ADF;		/* Tropical indigo */
+            --color-primary-hover: #7979C9; /* Tropical indigo (darker) */
+            --color-section-bg: #f5f7fa;	/* Anti-flash white */
+            --color-border: #e5e7eb;        /* Gray-200 */
+        }
+
         body {
-            background-color: #FAF9F5;
-            color: #141413;
+            background-color: var(--color-bg);
+            color: var(--color-text);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
         .highlight {
-            color: #8A8ADF;
+            color: var(--color-primary);
         }
         .btn-primary {
-            background-color: #8A8ADF;
+            background-color: var(--color-primary);
             transition: all 0.2s ease;
         }
         .btn-primary:hover {
-            background-color: #7979C9;
+            background-color: var(--color-primary-hover);
             transform: translateY(-1px);
         }
         .btn-secondary {
-            border: 1px solid #8A8ADF;
-            color: #8A8ADF;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
             transition: all 0.2s ease;
         }
         .btn-secondary:hover {
@@ -32,7 +41,7 @@
             transform: translateY(-1px);
         }
 
-        /* New styles from home (has nice features).html */
+        /* Features styles */
         .features {
             padding: 5rem 0;
         }
@@ -43,7 +52,7 @@
         .features h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #141413;
+            color: var(--color-text);
         }
         .features-grid {
             display: grid;
@@ -56,12 +65,12 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.03);
             padding: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 2px solid transparent; /* Merged with original .feature-card */
+            border-left: 2px solid transparent;
         }
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            border-left: 2px solid #8A8ADF; /* Merged with original hover effect */
+            border-left: 2px solid var(--color-primary);
         }
         .feature-header {
             display: flex;
@@ -72,25 +81,24 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: #f5f7fa;
+            background: var(--color-section-bg);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 1rem;
             font-size: 1.5rem;
-            color: #8A8ADF; /* Adjusted to match theme */
+            color: var(--color-primary);
         }
         .feature-title {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #141413;
+            color: var(--color-text);
         }
         .feature-desc {
-            color: #666;
             margin-bottom: 1.5rem;
         }
         .feature-image {
-            background: #f5f7fa;
+            background: var(--color-section-bg);
             border-radius: 8px;
             height: 160px;
             display: flex;
@@ -112,13 +120,9 @@
             justify-content: center;
         }
         .split-screen-left {
-            border-right: 1px solid #e0e0e0;
+            border-right: 1px solid var(--color-border);
             font-family: monospace;
-            color: #777;
             font-size: 0.9rem;
-        }
-        .split-screen-right {
-            color: #444;
         }
         .split-screen-heading {
             font-weight: bold;
@@ -133,13 +137,13 @@
         .dashboard-item {
             background: white;
             border-radius: 4px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--color-border);
             height: 100px;
         }
         .version-timeline {
             width: 80%;
             height: 2px;
-            background: #e0e0e0;
+            background: var(--color-border);
             position: relative;
             margin-top: 20px;
         }
@@ -147,7 +151,7 @@
             position: absolute;
             width: 12px;
             height: 12px;
-            background: #8A8ADF;
+            background: var(--color-primary);
             border-radius: 50%;
             top: -5px;
             display: flex;
@@ -158,7 +162,6 @@
             position: absolute;
             top: 15px;
             font-size: 0.7rem;
-            color: #888;
         }
         .version-point:nth-child(1) { left: 10%; }
         .version-point:nth-child(2) { left: 45%; }
@@ -171,16 +174,17 @@
         }
         .ai-prompt {
             background: white;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--color-border);
             border-radius: 4px;
             padding: 0.5rem;
             font-size: 0.9rem;
-            color: #888;
         }
         .ai-result {
             background: white;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--color-border);
             border-radius: 4px;
+            padding: 0.5rem;
+            font-size: 0.9rem;
             height: 80px;
         }
         @media (max-width: 1024px) {
@@ -220,7 +224,7 @@
                 </a>
             </section>
 
-            <!-- Features Section NEW (Replaced) -->
+            <!-- Features Section -->
             <section class="features container mx-auto px-6">
                 <div class="features-heading">
                     <h2>Markdown Pretty is pretty simple</h2>
@@ -232,15 +236,15 @@
                             <div class="feature-icon"></div>
                             <h3 class="feature-title">Real-time Preview</h3>
                         </div>
-                        <p class="feature-desc">See your markdown rendered instantly as you type</p>
+                        <p class="feature-desc text-gray-600">See your markdown rendered instantly as you type</p>
                         <div class="feature-image">
                             <div class="split-screen">
-                                <div class="split-screen-left">
+                                <div class="split-screen-left text-gray-500">
                                     # Heading<br>
                                     - List item<br>
                                     **Bold text**
                                 </div>
-                                <div class="split-screen-right">
+                                <div class="split-screen-right text-gray-700">
                                     <h3 class="split-screen-heading">Heading</h3>
                                     • List item<br>
                                     <strong>Bold text</strong>
@@ -255,7 +259,7 @@
                             <div class="feature-icon"></div>
                             <h3 class="feature-title">Document Management</h3>
                         </div>
-                        <p class="feature-desc">Organize and access your documents from anywhere</p>
+                        <p class="feature-desc text-gray-600">Organize and access your documents from anywhere</p>
                         <div class="feature-image">
                             <div class="dashboard-grid">
                                 <div class="dashboard-item"></div>
@@ -274,17 +278,17 @@
                             <div class="feature-icon"></div>
                             <h3 class="feature-title">Version Control</h3>
                         </div>
-                        <p class="feature-desc">Track changes and never lose your work</p>
+                        <p class="feature-desc text-gray-600">Track changes and never lose your work</p>
                         <div class="feature-image">
                             <div class="version-timeline">
                                 <div class="version-point">
-                                    <span class="version-label">v1</span>
+                                    <span class="version-label text-gray-400">v1</span>
                                 </div>
                                 <div class="version-point">
-                                    <span class="version-label">v2</span>
+                                    <span class="version-label text-gray-400">v2</span>
                                 </div>
                                 <div class="version-point">
-                                    <span class="version-label">v3</span>
+                                    <span class="version-label text-gray-400">v3</span>
                                 </div>
                             </div>
                         </div>
@@ -296,11 +300,11 @@
                             <div class="feature-icon"></div>
                             <h3 class="feature-title">AI Editing</h3>
                         </div>
-                        <p class="feature-desc">Enhance your writing with AI suggestions</p>
+                        <p class="feature-desc text-gray-600">Enhance your writing with AI suggestions</p>
                         <div class="feature-image">
                             <div class="ai-interface">
-                                <div class="ai-prompt">Please re-structure my doc for clarity!</div>
-                                <div class="ai-result"></div>
+                                <div class="ai-prompt text-gray-400">Please re-structure my doc for clarity!</div>
+                                <div class="ai-result text-gray-400">Thinking...</div>
                             </div>
                         </div>
                     </div>
