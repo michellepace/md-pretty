@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Pretty | Beautiful Markdown Editor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FAF9F5;
+            color: #141413;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        .highlight {
+            color: #8A8ADF;
+        }
+        .btn-primary {
+            background-color: #8A8ADF;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            background-color: #7979C9;
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            border: 1px solid #8A8ADF;
+            color: #8A8ADF;
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(138, 138, 223, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* New styles from home (has nice features).html */
+        .features {
+            padding: 5rem 0;
+        }
+        .features-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .features h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #141413;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 2px solid transparent; /* Merged with original .feature-card */
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-left: 2px solid #8A8ADF; /* Merged with original hover effect */
+        }
+        .feature-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: #8A8ADF; /* Adjusted to match theme */
+        }
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #141413;
+        }
+        .feature-desc {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .feature-image {
+            background: #f5f7fa;
+            border-radius: 8px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .split-screen {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .split-screen-left, .split-screen-right {
+            width: 50%;
+            height: 100%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .split-screen-left {
+            border-right: 1px solid #e0e0e0;
+            font-family: monospace;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        .split-screen-right {
+            color: #444;
+        }
+        .split-screen-heading {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            width: 80%;
+        }
+        .dashboard-item {
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            height: 100px;
+        }
+        .version-timeline {
+            width: 80%;
+            height: 2px;
+            background: #e0e0e0;
+            position: relative;
+            margin-top: 20px;
+        }
+        .version-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #8A8ADF;
+            border-radius: 50%;
+            top: -5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .version-label {
+            position: absolute;
+            top: 15px;
+            font-size: 0.7rem;
+            color: #888;
+        }
+        .version-point:nth-child(1) { left: 10%; }
+        .version-point:nth-child(2) { left: 45%; }
+        .version-point:nth-child(3) { left: 80%; }
+        .ai-interface {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            gap: 0.75rem;
+        }
+        .ai-prompt {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        .ai-result {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            height: 80px;
+        }
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <header class="container mx-auto px-6 py-4">
+            <nav class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-semibold tracking-tight">
+                        <span class="highlight">MD</span><span> Pretty</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" class="btn-secondary px-4 py-2 rounded-md text-sm font-medium">Sign in</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="flex-grow container mx-auto px-6">
+            <section class="max-w-3xl mx-auto text-center mt-20 md:mt-32">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter mb-8">
+                    Markdown editing, <span class="highlight">beautifully</span> reimagined
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-10">
+                    A clean, intuitive markdown editor with live preview and AI editing assistance. Create, manage, and share markdown docs, delightfully.
+                </p>
+                <a href="#" class="btn-primary inline-block px-9 py-3 rounded-md text-white font-medium text-lg shadow-md">
+                    See it in action
+                </a>
+            </section>
+
+            <!-- Features Section NEW (Replaced) -->
+            <section class="features container mx-auto px-6">
+                <div class="features-heading">
+                    <h2>Markdown Pretty is pretty simple</h2>
+                </div>
+                <div class="features-grid">
+                    <!-- Feature 1: Real-time Preview -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon"></div>
+                            <h3 class="feature-title">Real-time Preview</h3>
+                        </div>
+                        <p class="feature-desc">See your markdown rendered instantly as you type</p>
+                        <div class="feature-image">
+                            <div class="split-screen">
+                                <div class="split-screen-left">
+                                    # Heading<br>
+                                    - List item<br>
+                                    **Bold text**
+                                </div>
+                                <div class="split-screen-right">
+                                    <h3 class="split-screen-heading">Heading</h3>
+                                    • List item<br>
+                                    <strong>Bold text</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 2: Document Management -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon"></div>
+                            <h3 class="feature-title">Document Management</h3>
+                        </div>
+                        <p class="feature-desc">Organize and access your documents from anywhere</p>
+                        <div class="feature-image">
+                            <div class="dashboard-grid">
+                                <div class="dashboard-item"></div>
+                                <div class="dashboard-item"></div>
+                                <div class="dashboard-item"></div>
+                                <div class="dashboard-item"></div>
+                                <div class="dashboard-item"></div>
+                                <div class="dashboard-item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 3: Version Control -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon"></div>
+                            <h3 class="feature-title">Version Control</h3>
+                        </div>
+                        <p class="feature-desc">Track changes and never lose your work</p>
+                        <div class="feature-image">
+                            <div class="version-timeline">
+                                <div class="version-point">
+                                    <span class="version-label">v1</span>
+                                </div>
+                                <div class="version-point">
+                                    <span class="version-label">v2</span>
+                                </div>
+                                <div class="version-point">
+                                    <span class="version-label">v3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 4: AI Assistance -->
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <div class="feature-icon"></div>
+                            <h3 class="feature-title">AI Editing</h3>
+                        </div>
+                        <p class="feature-desc">Enhance your writing with AI suggestions</p>
+                        <div class="feature-image">
+                            <div class="ai-interface">
+                                <div class="ai-prompt">Please re-structure my doc for clarity!</div>
+                                <div class="ai-result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="container mx-auto px-6 py-8 border-t border-gray-200">
+            <div class="flex justify-between items-center">
+                <p class="text-sm text-gray-500">© 2025 MD Pretty. All rights reserved.</p>
+                <div class="text-sm text-gray-500">
+                    <a href="#" class="hover:text-gray-700 mr-4">Privacy</a>
+                    <a href="#" class="hover:text-gray-700">Terms</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
