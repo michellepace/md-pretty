@@ -1,8 +1,6 @@
 # Simplified version(s) for `spec.md`
 
-The below options are more aligned to the examples seen on Bolt, Replit, etc., as they are simplier and more concise. At the heart of it, the app is this: 
-
-> A modern markdown editor with real-time preview, version history, AI-powered enhancements, and seamless sharing.
+The below options are more aligned to the examples seen on Bolt, Replit, etc., as they are simplier and more concise. At the heart of it, the app is this: ***A modern markdown editor with real-time preview, version history, AI-powered enhancements, and seamless sharing.***
 
 Below are the responses of asking for a simplification on `spec.md`. As I am just concentrating on a prototype first, I think I'll use [Option 3: UI/UX only](#option-3-uiux-only) and hope that Bolt/Replit doesn't use up my credits for building the database, authentication, etc.
 
