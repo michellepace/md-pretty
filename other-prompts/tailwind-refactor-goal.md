@@ -4,10 +4,10 @@
 A stand-alone html file using Tailwind CSS via `<script src="https://cdn.tailwindcss.com/3.4.3"></script>`. This file is a high quality prototype of a Home page. For now, it must remain self contained, later it will be incorporated into a React web app where centralised theming is a priority.
 
 ## Our Goal
-Our goal is to refactor this html file to align with Tailwind CSS v3 best practices, focusing on centralised theming and reducing custom CSS. We’re doing this step-by-step to transform the file toward a utility-first workflow that fully leverages Tailwind’s strengths, while preparing for a proper setup (e.g., with a `tailwind.config.js` file) to manage themes centrally.
+Our goal is to refactor this html file to align with Tailwind CSS v3 best practices, focusing on centralised theming and reducing custom CSS. We're doing this step-by-step to transform the file toward a utility-first workflow that fully leverages Tailwind's strengths, while preparing for a proper setup (e.g., with a `tailwind.config.js` file) to manage themes centrally.
 
-### Why We’re Doing This?
-By aligning with Tailwind’s best practices, we aim to:
+### Why Are We Refactoring?
+By aligning with Tailwind's best practices, we aim to:
 - Streamline Development now: Minimise context-switching between HTML and CSS
 - Improve Scalability now: Make the code more maintainable and simple
 - Prepare for later incorporation into React app:
@@ -16,20 +16,20 @@ By aligning with Tailwind’s best practices, we aim to:
 
 ## What Are Tailwind Best Practices?
 Broadly, Tailwind CSS v3 best practices revolve around:
-- Utility-First Approach: Use Tailwind’s pre-defined utility classes (e.g., `p-4`, `bg-blue-500`) in HTML instead of writing custom CSS, reserving custom styles for edge cases.
+- Utility-First Approach: Use Tailwind's pre-defined utility classes (e.g., `p-4`, `bg-blue-500`) in HTML instead of writing custom CSS, reserving custom styles for edge cases.
 - Centralised Configuration: Define design tokens (colours, fonts, spacing) in `tailwind.config.js` for consistency and easy theme management.
-- Responsive and State-Driven Design: Leverage Tailwind’s modifiers (e.g., `md`:, `hover`:) for responsiveness and interactivity without media queries or custom selectors.
-- Minimal Custom CSS: Only use custom CSS for complex layouts or effects that utilities can’t handle, often with `@apply` in a build setup.
+- Responsive and State-Driven Design: Leverage Tailwind's modifiers (e.g., `md`:, `hover`:) for responsiveness and interactivity without media queries or custom selectors.
+- Minimal Custom CSS: Only use custom CSS for complex layouts or effects that utilities can't handle, often with `@apply` in a build setup.
 - Build Optimisation: Use a build process (not CDN) to generate lean, production-ready CSS by removing unused styles.
 
-By reducing custom CSS in this step, we’re laying the groundwork for these practices, with centralised theming as the next big win.
+By reducing custom CSS in this step, we're laying the groundwork for these practices, with centralised theming as the next big win.
 
 ### Utility-First Styling: Core Concept
 Tailwind CSS is built around the idea of utility classes, which are single-purpose, pre-defined CSS classes that apply specific styles. Instead of writing custom CSS (like you would in traditional frameworks or vanilla CSS), you compose your design by combining these utility classes directly in your HTML markup.
 
-For example, the documentation states: "With Tailwind, you style elements by applying pre-existing classes directly in your HTML." This means you don’t need to create separate CSS files with complex selectors or maintain a large stylesheet. Instead, you use classes like `bg-blue-500`, `text-center`, or `p-4` to style elements inline, building your UI as you go.
+For example, the documentation states: "With Tailwind, you style elements by applying pre-existing classes directly in your HTML." This means you don't need to create separate CSS files with complex selectors or maintain a large stylesheet. Instead, you use classes like `bg-blue-500`, `text-center`, or `p-4` to style elements inline, building your UI as you go.
 
-Here’s a practical example inspired by Tailwind CSS good practices:
+Here's a practical example inspired by Tailwind CSS good practices:
 
 ```html
 <section class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg sm:p-8 md:flex md:gap-6">
@@ -90,7 +90,7 @@ Traditional CSS often involves writing selectors like:
 
 With Tailwind, you skip this step and apply equivalent styles directly in the HTML using utility classes. This reduces context-switching between HTML and CSS files and keeps your styling closer to the markup.
 
-However, the documentation acknowledges that Tailwind isn’t meant to replace all CSS. For complex or unique styles (e.g., pseudo-elements or animations not covered by utilities), you can still write custom CSS, often using Tailwind’s `@apply` directive or plain CSS.
+However, the documentation acknowledges that Tailwind isn't meant to replace all CSS. For complex or unique styles (e.g., pseudo-elements or animations not covered by utilities), you can still write custom CSS, often using Tailwind's `@apply` directive or plain CSS.
 
 #### 3. Responsive Design with Modifiers
 Tailwind makes responsive design straightforward by using responsive modifiers. You can prefix utility classes with breakpoints like sm:, md:, lg:, or xl: to apply styles at specific screen sizes. 
@@ -174,3 +174,23 @@ Now you can use `bg-brand-blue` or `text-brand-blue` in your HTML.
 Utility-first frameworks can generate large CSS files because they include thousands of classes. Tailwind addresses this with PurgeCSS (now called **content optimization*- in v3). By analyzing your HTML, Tailwind removes unused classes during the build process, resulting in a lean CSS file for production.
 
 For example, if you only use `bg-blue-500` and `text-white`, the final CSS will include just those styles, not the entire Tailwind library.
+
+## Refactoring Priority Guidance
+
+When refactoring, the LLM should **determine the optimal sequence** based on the specific code rather than following a predetermined order. This approach ensures the most efficient transformation path.
+
+### Examples of Logical Sequencing:
+
+- **First reduce custom CSS** before implementing responsive design patterns
+- **Convert hard-coded color values** to Tailwind color classes before addressing hover states
+- **Simplify layout structures** with Tailwind flex/grid utilities before fine-tuning spacing
+- **Standardize text styling** with Tailwind typography classes before adding interactive states
+
+The LLM should analyze the code to identify which changes will provide the most significant improvements in maintainability and alignment with Tailwind's utility-first philosophy.
+
+## Summary: Key Refactoring Goals
+
+1. **Replace custom CSS** with Tailwind utility classes
+2. **Standardize design values** using Tailwind's predefined scales
+3. **Prepare for centralized theming** in the future React implementation
+4. **Improve maintainability** by adopting utility-first workflow
