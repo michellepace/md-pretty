@@ -1,0 +1,25 @@
+I'm developing a React web app with TypeScript and need your help selecting a markdown editor library with live preview functionality. Please recommend options based on these requirements:
+
+REQUIREMENTS (in order of priority):
+1. FUNCTIONALITY (highest priority)
+* Live preview that supports GitHub-flavoured markdown styling
+* Split pane view (editor/preview side by side)
+* Support for core markdown syntax including: Code blocks with syntax highlighting
+* Nice to have: Synchronized scrolling between editor and preview
+
+2. DESIGN
+* Clean, minimal UI suitable for professional applications
+* Fully responsive design that works well on mobile devices (critical)
+* Customizable/minimal toolbar with basic formatting options
+
+3. TECHNICAL CONSIDERATIONS
+* Compatible with Tailwind CSS 3 for styling
+* Strong TypeScript support with type definitions
+* Lightweight with good performance
+* Popular enough to be recognised by Claude 3.7 Sonnet and other LLMs
+* Well-documented
+
+Please provide:
+1. A comparison of 3 strong options with a table showing how each performs against my requirements
+2. Make a single clear recommendation with specific reasoning tied to my requirements
+3. If relevant, mention any alternatives I should consider if my requirements change.
